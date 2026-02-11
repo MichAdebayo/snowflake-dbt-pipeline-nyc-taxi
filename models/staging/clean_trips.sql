@@ -130,7 +130,7 @@ select
     case when mta_tax < 0 then 1 else 0 end as mta_tax_flag,
 
     -- > Tip Amount
-    tip_amount ,
+    tip_amount,
     case when tip_amount < 0 then 1 else 0 end as tip_amount_flag,
 
     -- > Tolls Amount
@@ -152,7 +152,10 @@ select
 
     -- > Airport Fee
     airport_fee,
-    case when airport_fee  < 0 then 1 else 0 end as invalid_airport_fee _flag,
-    case when airport_fee  is null then 1 else 0 end as missing_airport_fee _flag,
+    case when airport_fee < 0 then 1 else 0 end as invalid_airport_fee_flag,
+    case when airport_fee  is null then 1 else 0 end as missing_airport_fee_flag,
 
+    -- > CBD Congestion Fee 
+    cbd_congestion_fee ,
+    case when cbd_congestion_fee < 0 then 1 else 0 end as invalid_cbd_congestion_fee_flag
 from {{ source("raw_nyc_taxi_dataset", "YELLOW_TAXI_TRIPS") }}

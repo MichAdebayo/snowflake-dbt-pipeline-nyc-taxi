@@ -9,6 +9,203 @@ models:
         tests:
           - not_null
 
+      - name: vendor_desc
+        tests:
+          - not_null
+          
       - name: tpep_pickup_datetime
+        tests:
+          - not_null
+
+      - name: pickup_time
+        tests:
+          - not_null
+      - name: pickup_day
+        tests:
+          - not_null
+
+      - name: pickup_month
+        tests:
+          - not_null
+          
+      - name: pickup_year
+        tests:
+          - not_null
+
+      - name: tpep_dropoff_datetime
+        tests:
+          - not_null
+
+      - name: dropoff_time
+        tests:
+          - not_null
+
+      - name: dropoff_day
+        tests:
+          - not_null
+          
+      - name: dropoff_month
+        tests:
+          - not_null
+
+      - name: dropoff_year
+        tests:
+          - not_null
+
+      - name: trip_seconds
+        tests:
+          - not_null
+
+      - name: trip_minutes
+        tests:
+          - not_null
+          
+      - name: trip_hour
+        tests:
+          - not_null
+
+      - name: invalid_duration_flag
+        tests:
+          - not_null
+
+      - name: invalid_trip_flag
+        tests:
+          - not_null
+
+      - name: invalid_trip_distance
+        tests:
+          - not_null
+
+      - name: passenger_count_reporting
+        tests:
+          - not_null
+
+      - name: missing_passenger_count
+        tests:
+          - not_null
+          
+      - name: trip_distance
+        tests:
+          - not_null
+
+      - name: extreme_distance_flag
+        tests:
+          - not_null
+
+      - name: statistical_outlier_flag
+        tests:
+          - not_null
+
+      - name: ratecodeid
+        tests:
+          - not_null
+
+      - name: store_and_fwd_flag
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Y', 'N', NULL]
+
+      - name: missing_store_and_fwd_flag
+        tests:
+          - not_null
+          
+      - name: store_and_fwd_flag_desc
+        tests:
+          - not_null
+
+      - name: pulocationid
+        tests:
+          - not_null
+
+      - name: dolocationid
+        tests:
+          - not_null
+
+      - name: payment_type
+        tests:
+          - not_null
+
+      - name: payment_type_desc
+        tests:
+          - not_null
+
+      - name: fare_amount
+        tests:
+          - not_null
+          
+      - name: fare_amount_flag
+        tests:
+          - not_null
+
+      - name: extra
+        tests:
+          - not_null
+
+      - name: extra_flag
+        tests:
+          - not_null
+
+      - name: mta_tax
+        tests:
+          - not_null
+
+      - name: mta_tax_flag
+        tests:
+          - not_null
+          
+      - name: tip_amount
+        tests:
+          - not_null
+
+      - name: tip_amount_flag
+        tests:
+          - not_null
+
+      - name: tolls_amount
+        tests:
+          - not_null
+
+      - name: tolls_amount_flag
+        tests:
+          - not_null
+
+      - name: improvement_surcharge
+        tests:
+          - not_null
+
+      - name: improvement_surcharge_flag
+        tests:
+          - not_null
+
+      - name: total_amount
+        tests:
+          - not_null
+          
+      - name: total_amount_flag
+        tests:
+          - not_null
+
+      - name: invalid_congestion_surcharge_flag
+        tests:
+          - not_null
+
+      - name: missing_congestion_surcharge_flag
+        tests:
+          - not_null
+
+      - name: invalid_airport_fee_flag
+        tests:
+          - not_null
+          
+      - name: missing_airport_fee_flag
+        tests:
+          - not_null
+
+      - name: cbd_congestion_fee 
+        tests:
+          - not_null
+
+      - name: invalid_cbd_congestion_fee_flag
         tests:
           - not_null
