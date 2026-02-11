@@ -55,11 +55,28 @@ select
         when passenger_count is null then 1 else 0
     end as missing_passenger_count,
 
-
-
     --> Trip Distance
     trip_distance,
 
+    --> Flag Extreme Trip Distance
+    CASE 
+        WHEN trip_distance > 100 THEN 1
+        ELSE 0
+    END AS extreme_distance_flag,
+
+    --> Flag Extreme Trip Distance
+    CASE 
+        WHEN trip_distance > 20 THEN 1
+        ELSE 0
+    END AS statistical_outlier_flag,
+
+    --> RatecodeID 
+    CASE 
+        WHEN ratecodeid IS NULL THEN 99
+        ELSE ratecodeid
+     END AS ratecodeid,
+    
+    --> Store and Forward Flag
 
     
 from {{ source('raw_nyc_taxi_dataset', 'YELLOW_TAXI_TRIPS') }}
