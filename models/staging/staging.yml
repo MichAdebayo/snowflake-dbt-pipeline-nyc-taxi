@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: stg_yellow_taxi_trips
+  - name: clean_trips
     description: "Cleaned staging model for NYC Yellow Taxi trips"
     columns:
       - name: vendorid

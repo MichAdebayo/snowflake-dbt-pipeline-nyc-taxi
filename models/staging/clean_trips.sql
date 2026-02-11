@@ -3,13 +3,13 @@
 select
     --> VendorId
     vendorid,
-        case 
-            when vendorid = '1' then 'Creative Mobile Technologies, LLC'
-            when vendorid = '2' then 'Curb Mobility, LLC' 
-            when vendorid = '6' then 'Myle Technologies Inc'
-            when vendorid = '7' then 'Helix'
-            else 'NONE'
-        end as vendor_name,
+    case 
+        when vendorid = '1' then 'Creative Mobile Technologies, LLC'
+        when vendorid = '2' then 'Curb Mobility, LLC' 
+        when vendorid = '6' then 'Myle Technologies Inc'
+        when vendorid = '7' then 'Helix'
+        else 'NONE'
+    end as vendor_desc,
 
     --> Pickup Time
     tpep_pickup_datetime,
@@ -77,6 +77,21 @@ select
      END AS ratecodeid,
     
     --> Store and Forward Flag
+    store_and_fwd_flag,
+    CASE 
+        WHEN store_and_fwd_flag IS NULL THEN 1
+        ELSE 0
+    END AS missing_store_and_fwd_flag,
+
+    CASE 
+        WHEN store_and_fwd_flag = '1' then 'Standard rate'
+        WHEN store_and_fwd_flag = '2' then 'JFK'
+        WHEN store_and_fwd_flag = '3' then 'Newark '
+        WHEN store_and_fwd_flag = '4' then 'Nassau or Westchester'
+        WHEN store_and_fwd_flag = '5' then 'Negotiated fare'
+        WHEN store_and_fwd_flag = '6' then 'Group ride'
+        ELSE 'Null/unknown'
+    END AS store_and_fwd_flag_desc,
 
     
 from {{ source('raw_nyc_taxi_dataset', 'YELLOW_TAXI_TRIPS') }}
