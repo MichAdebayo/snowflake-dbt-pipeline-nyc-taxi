@@ -17,7 +17,7 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  nyc_taxi:
+  nyc_taxi_analysis:
     staging:
       +materialized: view
     marts:
