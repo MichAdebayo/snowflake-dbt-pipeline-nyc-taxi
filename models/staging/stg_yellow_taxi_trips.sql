@@ -11,4 +11,5 @@ select
     payment_type,
     fare_amount,
     total_amount
-from {{ source('raw_nyc_taxi', 'YELLOW_TAXI_TRIPS') }}
+from {{ source('raw_nyc_taxi_dataset', 'YELLOW_TAXI_TRIPS') }}
+limit 15
