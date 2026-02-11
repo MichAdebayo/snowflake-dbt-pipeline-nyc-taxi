@@ -1,0 +1,14 @@
+
+version: 2
+
+models:
+  - name: stg_yellow_taxi_trips
+    description: "Cleaned staging model for NYC Yellow Taxi trips"
+    columns:
+      - name: vendorid
+        tests:
+          - not_null
+
+      - name: tpep_pickup_datetime
+        tests:
+          - not_null
