@@ -20,10 +20,7 @@ models:
   nyc_taxi_analysis:
     staging:
       +materialized: view
-      +schema: STAGING
-    post_staging:
-      +schema: STAGING         
+    post_staging:     
       +materialized: table
     marts:
       +materialized: table
-      +schema: MARTS
