@@ -12,6 +12,7 @@ select
     pickup_day_name,
 
     -- > Metrics
+    passenger_count_reporting,
     trip_minutes,
     hour_record,
     trip_speed,
