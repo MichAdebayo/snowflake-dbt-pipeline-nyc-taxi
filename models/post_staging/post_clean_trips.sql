@@ -72,8 +72,8 @@ with
             dropoff_year,
             trip_seconds,
             trip_minutes,
-            round((trip_minutes / 60), 2) as trip_hour,
-            round(trip_distance / (trip_minutes / 60), 2) as trip_speed,
+            round(trip_minutes / 60, 2) as trip_hour,
+            round(trip_distance / Coalesce(NULLIF(trip_minutes / 60, 0), 0), 2) as trip_speed,
             passenger_count_reporting,
             trip_distance,
             case
@@ -131,6 +131,7 @@ with
             and invalid_airport_fee_flag = 0
             and missing_airport_fee_flag = 0
             and invalid_cbd_congestion_fee_flag = 0
+            and trip_minutes != 0
     )
 
 select
