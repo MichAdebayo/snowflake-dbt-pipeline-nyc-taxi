@@ -46,6 +46,7 @@ with
                 then 'Night'
                 else 'Late Night'
             end as time_period,
+            extract(hour from to_time(pickup_time)) as hour_record,
             extract(dow from tpep_pickup_datetime) as pickup_dow,
             initcap(
                 case
