@@ -9,6 +9,7 @@ with
         select
             vendor_desc,
             pickup_time,
+            pickup_day,
             pickup_month,
             case
                 when pickup_month = '1'

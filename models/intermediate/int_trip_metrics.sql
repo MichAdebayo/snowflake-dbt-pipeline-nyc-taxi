@@ -3,6 +3,7 @@
 select
     -- > Dimensions
     pickup_zone,
+    pickup_day,
     pickup_month_name,
     time_period,
     type_of_day,
