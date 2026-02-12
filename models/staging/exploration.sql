@@ -2,7 +2,7 @@
 
 WITH temp_table AS (
     SELECT 
-        cbd_congestion_fee 
+      tpep_pickup_datetime, tpep_dropoff_datetime
     FROM {{ source('raw_nyc_taxi_dataset', 'YELLOW_TAXI_TRIPS') }}
 )
-SELECT count(*) as tot from temp_table where cbd_congestion_fee < 0
+SELECT extract(dow from tpep_pickup_datetime) as pickup_dow, to_char(tpep_pickup_datetime, 'Day') as pickup_day_name from temp_table 

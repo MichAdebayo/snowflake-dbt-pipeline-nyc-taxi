@@ -59,10 +59,7 @@ models:
       - name: trip_minutes
         tests:
           - not_null
-          
-      - name: trip_hour
-        tests:
-          - not_null
+        
 
       - name: invalid_duration_flag
         tests:
@@ -100,6 +97,10 @@ models:
         tests:
           - not_null
 
+      - name: ratecodeid_desc
+        tests:
+          - not_null
+
       - name: store_and_fwd_flag
         tests:
           - accepted_values:
@@ -109,10 +110,7 @@ models:
       - name: missing_store_and_fwd_flag
         tests:
           - not_null
-          
-      - name: store_and_fwd_flag_desc
-        tests:
-          - not_null
+        
 
       - name: pulocationid
         tests:

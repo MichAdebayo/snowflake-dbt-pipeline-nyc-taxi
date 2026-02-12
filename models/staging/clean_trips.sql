@@ -1,4 +1,4 @@
-{{ config(materialized="view") }}
+{{ config(materialized="table") }}
 
 select
     -- > VendorId
@@ -32,7 +32,6 @@ select
     -- > Trip Duration
     datediff(second, tpep_pickup_datetime, tpep_dropoff_datetime) as trip_seconds,
     datediff(minute, tpep_pickup_datetime, tpep_dropoff_datetime) as trip_minutes,
-    datediff(hour, tpep_pickup_datetime, tpep_dropoff_datetime) as trip_hour,
 
     -- > Flag trips with zero or negative duration
     case
@@ -65,7 +64,7 @@ select
     trip_distance,
 
     -- > Flag Extreme Trip Distance (expected to be reported)
-    case when trip_distance > 100 then 1 else 0 end as extreme_distance_flag,
+    case when trip_distance not between 0.1 and 100 then 1 else 0 end as extreme_distance_flag,
 
     -- > Flag Outlier Trip Distance
     case when trip_distance > 20 then 1 else 0 end as statistical_outlier_flag,
@@ -73,27 +72,27 @@ select
     -- > RatecodeID 
     case when ratecodeid is null then 99 else ratecodeid end as ratecodeid,
 
+    case
+        when ratecodeid  = '1'
+        then 'Standard rate'
+        when ratecodeid  = '2'
+        then 'JFK'
+        when ratecodeid  = '3'
+        then 'Newark '
+        when ratecodeid  = '4'
+        then 'Nassau or Westchester'
+        when ratecodeid  = '5'
+        then 'Negotiated fare'
+        when ratecodeid  = '6'
+        then 'Group ride'
+        else 'Null/unknown'
+    end as ratecodeid_desc,
+
     -- > Store and Forward Flag
     store_and_fwd_flag,
     case
         when store_and_fwd_flag is null then 1 else 0
     end as missing_store_and_fwd_flag,
-
-    case
-        when store_and_fwd_flag = '1'
-        then 'Standard rate'
-        when store_and_fwd_flag = '2'
-        then 'JFK'
-        when store_and_fwd_flag = '3'
-        then 'Newark '
-        when store_and_fwd_flag = '4'
-        then 'Nassau or Westchester'
-        when store_and_fwd_flag = '5'
-        then 'Negotiated fare'
-        when store_and_fwd_flag = '6'
-        then 'Group ride'
-        else 'Null/unknown'
-    end as store_and_fwd_flag_desc,
 
     -- > TLC Taxi Zones
     pulocationid,
