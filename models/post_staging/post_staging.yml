@@ -94,11 +94,11 @@ models:
         tests:
           - not_null
 
-      - name: payment_type_desc
+      - name: payment_category
         tests:
           - accepted_values:
               arguments:
-                values: ['Credit Card', 'Cash', 'Others']
+                values: ['Credit card', 'Cash', 'Others']
 
       - name: fare_amount
         tests:
