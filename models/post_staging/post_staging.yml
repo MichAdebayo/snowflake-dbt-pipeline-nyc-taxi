@@ -144,6 +144,30 @@ models:
         tests:
           - not_null
 
+      - name: pickup_borough
+        tests:
+          - not_null
+
+      - name: pickup_zone
+        tests:
+          - not_null
+
+      - name: pickup_service_zone
+        tests:
+          - not_null
+
+      - name: dropoff_borough
+        tests:
+          - not_null
+
+      - name: dropoff_zone
+        tests:
+          - not_null
+
+      - name: dropoff_service_zone
+        tests:
+          - not_null
+
       - name: type_of_day
         tests:
           - accepted_values:

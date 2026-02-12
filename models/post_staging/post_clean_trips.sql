@@ -135,7 +135,14 @@ with
     )
 
 select
-    *,
+    pc.*,
+    pu.borough as pickup_borough,
+    pu.zone as pickup_zone,
+    pu.service_zone as pickup_service_zone,
+    
+    do.borough as dropoff_borough,
+    do.zone as dropoff_zone,
+    do.service_zone as dropoff_service_zone,
     case
         when pickup_day_name in ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday')
         then 'Work week'
@@ -145,6 +152,6 @@ from post_clean pc
 left join {{ ref('taxi_zone_lookup')}} pu on 
  pc.pulocationid = pu.locationid
 left join {{ ref('taxi_zone_lookup')}} do on 
- pc.pulocationid = do.locationid
+ pc.dolocationid = do.locationid
 
 
