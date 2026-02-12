@@ -10,11 +10,11 @@ select
     payment_category,
     distance_category,
     pickup_day_name,
+    hour_record,
 
     -- > Metrics
     passenger_count_reporting,
     trip_minutes,
-    hour_record,
     trip_speed,
     tip_percentage,
     fare_amount,

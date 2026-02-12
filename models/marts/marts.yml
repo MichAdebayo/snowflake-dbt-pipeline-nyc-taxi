@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: hourly_patterns
+    description: "Hourly breakdown of trips"
+    columns:
+      - name: hour_record
+        tests:
+          - not_null
+
+      - name: hourly_demand
+        tests:
+          - not_null
+
+  - name: zone_analysis
+    description: "Zonal analysis of trips"
+    columns:
+      - name: pickup_zone
+        tests:
+          - not_null
+
+      - name: zonal_total_demand
+        tests:
+          - not_null
+
+      - name: average_trip_duration
+        tests:
+          - not_null
+
+      - name: total_trip_duration
+        tests:
+          - not_null
+
+      - name: average_trip_speed
+        tests:
+          - not_null
+
+      - name: average_tip_percentage
+        tests:
+          - not_null
+
+      - name: average_fare_amount
+        tests:
+          - not_null
+
+      - name: total_fare_amount
+        tests:
+          - not_null
+
+      - name: average_total_amount
+        tests:
+          - not_null
+
+      - name: full_total_amount
+        tests:
+          - not_null
