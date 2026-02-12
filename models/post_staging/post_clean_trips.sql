@@ -1,4 +1,8 @@
-{{ config(materialized="table") }}
+{{ config(
+    materialized='table',
+    schema='STAGING'
+) }}
+
 
 with
     post_clean as (

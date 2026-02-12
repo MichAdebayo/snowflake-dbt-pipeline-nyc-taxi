@@ -1,8 +1,8 @@
-name: 'nyc_taxi_analysis'
-version: '1.0.0'
+name: "nyc_taxi_analysis"
+version: "1.0.0"
 config-version: 2
 
-profile: 'Development'
+profile: "Development"
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -20,5 +20,10 @@ models:
   nyc_taxi_analysis:
     staging:
       +materialized: view
+      +schema: STAGING
+    post_staging:
+      +schema: STAGING         
+      +materialized: table
     marts:
       +materialized: table
+      +schema: MARTS
