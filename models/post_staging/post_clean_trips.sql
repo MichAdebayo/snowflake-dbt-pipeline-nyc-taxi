@@ -9,6 +9,7 @@ with
         select
             vendor_desc,
             pickup_time,
+            pickup_date,
             pickup_day,
             pickup_month,
             case
@@ -80,14 +81,14 @@ with
             trip_distance,
             case
                 when trip_distance between 0 and 1
-                then 'short trip'
+                then 'Short trip'
                 when trip_distance between 2 and 5
-                then 'average trip'
+                then 'Average trip'
                 when trip_distance between 6 and 10
-                then 'long trip'
+                then 'Long trip'
                 when trip_distance > 10
-                then 'very long trip'
-                else 'misssing trip'
+                then 'Very long trip'
+                else 'Missing trip'
             end as distance_category,
             ratecodeid_desc,
             store_and_fwd_flag,

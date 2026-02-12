@@ -17,6 +17,7 @@ select
 
     -- > Pickup Time
     tpep_pickup_datetime,
+    DATE(tpep_pickup_datetime) AS pickup_date,
     cast(cast(tpep_pickup_datetime as time) as string) as pickup_time,
     cast(extract(day from tpep_pickup_datetime) as string) as pickup_day,
     cast(extract(month from tpep_pickup_datetime) as string) as pickup_month,
@@ -24,6 +25,7 @@ select
 
     -- > Drop-off Times
     tpep_dropoff_datetime,
+    DATE(tpep_dropoff_datetime) AS drop_off_date,
     cast(tpep_dropoff_datetime as time) as dropoff_time,
     cast(extract(day from tpep_dropoff_datetime) as string) as dropoff_day,
     cast(extract(month from tpep_dropoff_datetime) as string) as dropoff_month,
