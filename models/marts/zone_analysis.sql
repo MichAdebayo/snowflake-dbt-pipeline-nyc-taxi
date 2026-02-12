@@ -2,8 +2,26 @@
 
 select
     pickup_zone,
-    count(pickup_zone) as zonal_total_demand,
-    round(avg(trip_minutes) ,2)as average_trip_duration,
+
+    sum(
+        case when distance_category = 'Short trip' then 1 else 0 end
+    ) as short_trip_total,
+    sum(
+        case when distance_category = 'Average trip' then 1 else 0 end
+    ) as average_trip_total,
+    sum(case when distance_category = 'Long trip' then 1 else 0 end) as long_trip_total,
+    sum(
+        case when distance_category = 'Very long trip' then 1 else 0 end
+    ) as very_long_trip_total,
+
+    sum(
+        case when payment_category = 'Credit card' then 1 else 0 end
+    ) as credit_card_total,
+    sum(case when payment_category = 'Cash' then 1 else 0 end) as cash_total,
+    sum(case when payment_category = 'Others' then 1 else 0 end) as others_total,
+
+    count(pickup_zone) as trip_total,
+    round(avg(trip_minutes), 2) as average_trip_duration,
     round(sum(trip_minutes), 2) as total_trip_duration,
     round(avg(trip_speed), 2) as average_trip_speed,
     round(avg(tip_percentage), 2) as average_tip_percentage,
