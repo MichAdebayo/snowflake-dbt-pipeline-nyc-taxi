@@ -24,3 +24,14 @@ models:
       +materialized: table
     marts:
       +materialized: table
+
+seeds:
+  nyc_taxi_analysis:   
+    taxi_zone_lookup:
+      +column_types:
+          LocationID: NUMBER
+          Borough: VARCHAR
+          Zone: VARCHAR
+          service_zone: VARCHAR
+        
+

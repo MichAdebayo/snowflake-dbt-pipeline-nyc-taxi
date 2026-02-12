@@ -141,4 +141,10 @@ select
         then 'Work week'
         else 'Weekend'
     end as type_of_day
-from post_clean
+from post_clean pc
+left join {{ ref('taxi_zone_lookup')}} pu on 
+ pc.pulocationid = pu.locationid
+left join {{ ref('taxi_zone_lookup')}} do on 
+ pc.pulocationid = do.locationid
+
+
