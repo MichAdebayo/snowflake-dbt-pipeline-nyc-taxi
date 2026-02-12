@@ -18,7 +18,12 @@ clean-targets:
 
 models:
   nyc_taxi_analysis:
-    staging_tables:
+    staging:
       +materialized: view
+      +schema: STAGING
+    post_staging:
+      +schema: STAGING         
+      +materialized: table
     marts:
       +materialized: table
+      +schema: MARTS
