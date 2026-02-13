@@ -1,4 +1,4 @@
-{{ config(materialized="table", schema="MART", cluster_by=["pickup_date"]) }}
+{{ config(materialized="table", schema="MARTS", cluster_by=["pickup_date"]) }}
 
 select
     pickup_date,

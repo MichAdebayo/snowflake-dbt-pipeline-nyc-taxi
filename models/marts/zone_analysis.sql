@@ -13,6 +13,9 @@ select
     sum(
         case when distance_category = 'Very long trip' then 1 else 0 end
     ) as very_long_trip_total,
+    sum(
+        case when distance_category = 'Missing trip' then 1 else 0 end
+    ) as missing_trip_total,
 
     sum(
         case when payment_category = 'Credit card' then 1 else 0 end
