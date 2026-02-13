@@ -8,7 +8,73 @@ models:
         tests:
           - not_null
 
-      - name: hourly_demand
+      - name: credit_card_total
+        tests:
+          - not_null
+
+      - name: cash_total
+        tests:
+          - not_null
+
+      - name: others_total
+        tests:
+          - not_null
+
+      - name: short_trip_total
+        tests:
+          - not_null
+
+      - name: average_trip_total
+        tests:
+          - not_null
+
+      - name: long_trip_total
+        tests:
+          - not_null
+
+      - name: very_long_trip_total
+        tests:
+          - not_null
+
+      - name: missing_trip_total
+        tests:
+          - not_null
+
+
+      - name: total_trips
+        tests:
+          - not_null
+
+      - name: avg_trip_duration
+        tests:
+          - not_null
+
+      - name: total_trip_duration
+        tests:
+          - not_null
+
+      - name: avg_trip_speed
+        tests:
+          - not_null
+
+      - name: avg_tip_percentage
+        tests:
+          - not_null
+
+
+      - name: avg_fare_amount
+        tests:
+          - not_null
+
+      - name: total_fare_amount
+        tests:
+          - not_null
+
+      - name: avg_total_amount
+        tests:
+          - not_null
+
+      - name: total_total_amount
         tests:
           - not_null
 
