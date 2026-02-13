@@ -1,7 +1,9 @@
 {{ config(materialized='table', schema='INTERMEDIATE') }}
 
 select
+   
     -- > Dimensions
+    pulocationid,
     pickup_zone,
     pickup_date,
     pickup_day,

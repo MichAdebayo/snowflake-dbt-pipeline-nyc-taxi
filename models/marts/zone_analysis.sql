@@ -31,4 +31,4 @@ select
     round(sum(total_amount), 2) as full_total_amount
 from {{ ref("int_trip_metrics") }}
 group by pickup_zone
-order by full_total_amount desc
+order by trip_total desc
