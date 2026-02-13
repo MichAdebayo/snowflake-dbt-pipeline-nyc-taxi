@@ -1,0 +1,175 @@
+version: 2
+
+models:
+  - name: post_clean_trips
+    description: "Transformed post-staging model for NYC Yellow Taxi trips"
+    columns:
+      - name: vendor_desc
+        tests:
+          - not_null
+
+      - name: pickup_time
+        tests:
+          - not_null
+
+      - name: pickup_month
+        tests:
+          - not_null
+
+      - name: pickup_month_name
+        tests:
+          - not_null
+
+      - name: time_period
+        tests:
+          - not_null
+
+      - name: pickup_dow
+        tests:
+          - not_null
+
+      - name: pickup_day_name
+        tests:
+          - not_null
+
+      - name: pickup_year
+        tests:
+          - not_null
+
+      - name: dropoff_day
+        tests:
+          - not_null
+
+      - name: dropoff_month
+        tests:
+          - not_null
+
+      - name: dropoff_year
+        tests:
+          - not_null
+
+      - name: trip_seconds
+        tests:
+          - not_null
+
+      - name: trip_minutes
+        tests:
+          - not_null
+
+      - name: trip_hour
+        tests:
+          - not_null
+
+      - name: trip_speed
+        tests:
+          - not_null
+
+      - name: passenger_count_reporting
+        tests:
+          - not_null
+
+      - name: trip_distance
+        tests:
+          - not_null
+
+      - name: distance_category
+        tests:
+          - not_null
+
+      - name: ratecodeid_desc
+        tests:
+          - not_null
+
+      - name: store_and_fwd_flag
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Y', 'N']
+
+      - name: pulocationid
+        tests:
+          - not_null
+
+      - name: dolocationid
+        tests:
+          - not_null
+
+      - name: payment_category
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Credit card', 'Cash', 'Others']
+
+      - name: fare_amount
+        tests:
+          - not_null
+
+      - name: extra
+        tests:
+          - not_null
+
+      - name: mta_tax
+        tests:
+          - not_null
+
+      - name: tip_amount
+        tests:
+          - not_null
+
+      - name: tolls_amount
+        tests:
+          - not_null
+
+      - name: improvement_surcharge
+        tests:
+          - not_null
+
+      - name: total_amount
+        tests:
+          - not_null
+
+      - name: tip_percentage
+        tests:
+          - not_null
+
+      - name: congestion_surcharge
+        tests:
+          - not_null
+
+      - name: airport_fee
+        tests:
+          - not_null
+
+      - name: cbd_congestion_fee
+        tests:
+          - not_null
+
+      - name: pickup_borough
+        tests:
+          - not_null
+
+      - name: pickup_zone
+        tests:
+          - not_null
+
+      - name: pickup_service_zone
+        tests:
+          - not_null
+
+      - name: dropoff_borough
+        tests:
+          - not_null
+
+      - name: dropoff_zone
+        tests:
+          - not_null
+
+      - name: dropoff_service_zone
+        tests:
+          - not_null
+
+      - name: type_of_day
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Work week', 'Weekend']

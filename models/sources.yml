@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw_nyc_taxi_dataset
+    database: NYC_TAXI_DB
+    schema: RAW_DATA
+    tables:
+      - name: YELLOW_TAXI_TRIPS
+        description: "Raw NYC Yellow Taxi trip data"

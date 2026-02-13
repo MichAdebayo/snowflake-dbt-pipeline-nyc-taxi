@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: int_trip_metrics
+    description: "Selected dimensions and metrics for mart schema"
+    columns:
+      - name: pickup_zone
+        tests:
+          - not_null
+
+      - name: pickup_month_name
+        tests:
+          - not_null
+      - name: time_period
+        tests:
+          - not_null
+
+      - name: type_of_day
+        tests:
+          - not_null
+
+      - name: payment_type_desc
+        tests:
+          - not_null
+
+      - name: payment_category
+        tests:
+          - not_null
+
+      - name: distance_category
+        tests:
+          - not_null
+
+      - name: pickup_day_name
+        tests:
+          - not_null
+
+      - name: passenger_count_reporting
+        tests:
+          - not_null
+
+      - name: trip_minutes
+        tests:
+          - not_null
+
+      - name: hour_record
+        tests:
+          - not_null
+
+      - name: trip_speed
+        tests:
+          - not_null
+
+      - name: tip_percentage
+        tests:
+          - not_null
+
+      - name: fare_amount
+        tests:
+          - not_null
+
+      - name: total_amount
+        tests:
+          - not_null
